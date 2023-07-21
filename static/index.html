@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prayer Timers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+      <h1 class="text-center mt-4">Prayer Timers</h1>
+      <div class="row mt-5">
+        <div class="col-sm-4" v-for="timer in timers" :key="timer.name">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ timer.name }}</h5>
+              <p class="card-text">{{ timer.time }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
