@@ -1,0 +1,24 @@
+
+#add ip to google domains 
+A record 
+timers.rontohub.com	A	1 hour	
+34.100.249.126
+https://domains.google.com/registrar/rontohub.com/dns?_ga=2.236342529.1626638212.1689567758-28068247.1689567758&_gl=1*19ircyh*_gcl_aw*R0NMLjE2ODk1Njc3NjEuQ2owS0NRandxczZsQmhDeEFSSXNBRzhZY0RndkNKa200RHp5RC1yU29nS2M3c3ZqNkRaMmo1S2h3a3dNUjBjR1R0WWhoSnp5VndGVHo1b2FBblFDRUFMd193Y0I.*_gcl_dc*R0NMLjE2ODk1Njc3NjEuQ2owS0NRandxczZsQmhDeEFSSXNBRzhZY0RndkNKa200RHp5RC1yU29nS2M3c3ZqNkRaMmo1S2h3a3dNUjBjR1R0WWhoSnp5VndGVHo1b2FBblFDRUFMd193Y0I.*_gcl_au*NjA5NTcxMDg2LjE2ODk1Njc3NjE.*_ga*MjgwNjgyNDcuMTY4OTU2Nzc1OA..*_ga_9YWT2H669H*MTY4OTU2Nzc2MS4xLjAuMTY4OTU2Nzc2MS4wLjAuMA..
+
+#iqbalforall@gmail.com single sson on used
+
+#mkdir /home/contact/timers
+cd /home/contact/timers
+sudo git clone https://github.com/ikbhal/95attempt_5timers_fixed.git . 
+sudo npm install
+sudo pm2 start index.js --name timers 
+sudo pm2 logs timers 
+
+sudo vi /etc/caddy/Caddyfile
+# add folowing snippet to Caddyfile
+timers.rontohub.com {
+    reverse_proxy localhost:3002
+}
+
+sudo caddy stop
+sudo caddy run --config /etc/caddy/Caddyfile --resume
